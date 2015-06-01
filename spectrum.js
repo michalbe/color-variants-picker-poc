@@ -6,11 +6,12 @@ window.onload = (function(){
   var toSkip = 0;
   var pos = 0;
   var colorsNumber = colors.length;
+  var colorSize = (canvas.height/colors.length);
 
   var draw = function(){
     canvas.height = document.documentElement.clientHeight;
     pos = 0;
-    var colorSize = (canvas.height/colors.length);
+    colorSize = (canvas.height/colors.length);
 
     colors.forEach(function(color){
       ctx.fillStyle = color;
@@ -28,6 +29,12 @@ window.onload = (function(){
   });
 
   canvas.addEventListener('touchmove', function(e){
+    var touchPosition = e.touches[0].clientY;
+    var inx = Math.round(touchPosition/colorSize)-1;
+
+    //console.log(touchPosition, colorSize, touchPosition/colorSize, inx);
+    //console.log(inx);
+    console.log(colors[inx]);
     draw();
   });
 
