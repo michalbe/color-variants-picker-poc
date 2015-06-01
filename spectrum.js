@@ -5,17 +5,20 @@ window.onload = (function(){
 
   var toSkip = 0;
   var pos = 0;
+  var affectedColors = 4;
   var colorsNumber = colors.length;
   var colorSize = (canvas.height/colors.length);
-  var rectSize = 50;
-  var fingerIsHidingMeKurwaMargin = 50
-  var draw = function(){
+  var activeColorSize = 100;
+
+  var draw = function(activeColor){
     canvas.height = document.documentElement.clientHeight;
     pos = 0;
     colorSize = (canvas.height/colors.length);
-
-    colors.forEach(function(color){
+    colors.forEach(function(color, index){
       ctx.fillStyle = color;
+      if (Math.abs(index - activeColor) < affectedColors)
+        console.log(Math.abs(index - activeColor))// < affectedColors);
+        //tu dodac rysowanie
       ctx.fillRect(10, pos, 100, colorSize);
       pos += colorSize;
     });
@@ -37,7 +40,7 @@ window.onload = (function(){
     //console.log(touchPosition, colorSize, touchPosition/colorSize, inx);
     //console.log(inx);
     ctx.fillStyle = colors[inx];
-    ctx.fillRect(0, touchPosition - (rectSize/2) - fingerIsHidingMeKurwaMargin, rectSize, rectSize);
+    ctx.fillRect(0, touchPosition - (activeColorSize/2), activeColorSize, activeColorSize);
   });
 
   canvas.addEventListener('touchend', function(){
@@ -45,6 +48,6 @@ window.onload = (function(){
     draw();
   });
 
-  draw();
+  draw(32);
   window.onresize = draw;
 });
