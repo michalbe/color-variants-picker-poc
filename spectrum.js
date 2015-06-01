@@ -3,19 +3,28 @@ window.onload = (function(){
   var ctx = canvas.getContext('2d');
   canvas.width = 60;
 
-  var toSkip = 0;
+  var toSkip = 4;
+  var localColors = [];
+  if (toSkip > 0) {
+    for (var i=0, l=colors.length; i<l; i+=toSkip) {
+      localColors.push(colors[i]);
+    }
+  } else {
+    localColors = colors;
+  }
+
   var pos = 0;
   var affectedColors = 20;
-  var colorsNumber = colors.length;
-  var colorSize = (canvas.height/colors.length);
+  var colorsNumber = localColors.length;
+  var colorSize = (canvas.height/localColors.length);
   var activeColorSize = 60;
 
   var draw = function(activeColor){
     canvas.height = document.documentElement.clientHeight;
     pos = 0;
-    colors.forEach(function(color, index) {
+    localColors.forEach(function(color, index) {
       var posX = 30;
-      var tempSize = (canvas.height/colors.length);
+      var tempSize = (canvas.height/localColors.length);
       ctx.fillStyle = color;
       ctx.fillRect(posX, pos, 100, tempSize);
       pos += tempSize;
@@ -32,7 +41,7 @@ window.onload = (function(){
     canvas.classList.remove('hidden');
     margin = 0;
     var touchPosition = e.touches[0].clientY;
-    var inx = Math.round(touchPosition/(canvas.height/colors.length))-1;
+    var inx = Math.round(touchPosition/(canvas.height/localColors.length))-1;
     draw(inx);
     ctx.fillStyle = colors[inx];
     var target = document.getElementById(colors[inx]);
