@@ -31,24 +31,24 @@ window.onload = (function(){
     });
   };
 
+  var drawColorRect = function(e){
+    var touchPosition = e.touches[0].clientY;
+    var inx = Math.round(touchPosition/(canvas.height/colors.length))-1;
+    draw(inx);
+    ctx.fillStyle = colors[inx];
+    ctx.fillRect(0, touchPosition - activeColorSize, activeColorSize, activeColorSize);
+  };
+
   canvas.addEventListener('touchstart', function(e){
     //console.log(e.touches[0].clientY);
     e.preventDefault();
     canvas.classList.remove('hidden');
     margin = 0;
-    var touchPosition = e.touches[0].clientY;
-    var inx = Math.round(touchPosition/(canvas.height/colors.length))-1;
-    draw(inx);
-    ctx.fillStyle = colors[inx];
-    ctx.fillRect(0, touchPosition - activeColorSize, activeColorSize, activeColorSize);
+    drawColorRect(e);
   });
 
   canvas.addEventListener('touchmove', function(e){
-    var touchPosition = e.touches[0].clientY;
-    var inx = Math.round(touchPosition/(canvas.height/colors.length))-1;
-    draw(inx);
-    ctx.fillStyle = colors[inx];
-    ctx.fillRect(0, touchPosition - activeColorSize, activeColorSize, activeColorSize);
+    drawColorRect(e);
   });
 
   canvas.addEventListener('touchend', function(){
