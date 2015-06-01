@@ -26,6 +26,7 @@ div.color span {
   padding: 5px 10px;
   font-weight: bold;
   opacity: 0.8;
+  text-shadow: 1px 1px #FFF;
 }
 
 span:active {
