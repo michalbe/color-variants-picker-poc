@@ -3,7 +3,8 @@ window.onload = (function(){
   var ctx = canvas.getContext('2d');
   canvas.width = 60;
 
-  var toSkip = 40;
+  var colorsInScroll = 20;
+  var toSkip = Math.round(colors.length/colorsInScroll);
   var localColors = [];
   if (toSkip > 0) {
     for (var i=0, l=colors.length; i<l; i+=toSkip) {
