@@ -36,6 +36,10 @@ window.onload = (function(){
     var inx = Math.round(touchPosition/(canvas.height/colors.length))-1;
     draw(inx);
     ctx.fillStyle = colors[inx];
+    var target = document.getElementById(colors[inx]);
+    if (target) {
+      target.scrollIntoView();
+    }
     ctx.fillRect(0, touchPosition - activeColorSize, activeColorSize, activeColorSize);
   };
 
