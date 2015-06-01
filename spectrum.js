@@ -3,7 +3,7 @@ window.onload = (function(){
   var ctx = canvas.getContext('2d');
   canvas.width = 60;
 
-  var toSkip = 4;
+  var toSkip = 40;
   var localColors = [];
   if (toSkip > 0) {
     for (var i=0, l=colors.length; i<l; i+=toSkip) {
@@ -44,7 +44,7 @@ window.onload = (function(){
     var inx = Math.round(touchPosition/(canvas.height/localColors.length))-1;
     draw(inx);
     ctx.fillStyle = localColors[inx];
-    var target = document.getElementById(colors[inx]);
+    var target = document.getElementById(colors[inx*toSkip]);
     if (target) {
       target.scrollIntoView();
     }
