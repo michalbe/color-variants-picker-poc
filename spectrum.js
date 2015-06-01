@@ -17,27 +17,15 @@ window.onload = (function(){
       var posX = 30;
       var tempSize = (canvas.height/colors.length);
       ctx.fillStyle = color;
-      // if (activeColor) {
-      //   distanceFactor = Math.abs(index - activeColor);
-      //   if (distanceFactor < affectedColors) {
-      //     //console.log(index, colorSize * (activeColorSize/(distanceFactor+1)));
-      //     //tempSize = colorSize * (activeColorSize/(distanceFactor+1));
-      //
-      //     posX = (distanceFactor+10) > posX ? posX : (distanceFactor+10);//posX - posX/(distanceFactor+1);
-      //   }
-      // }
       ctx.fillRect(posX, pos, 100, tempSize);
       pos += tempSize;
     });
   };
 
 
-  // canvas.addEventListener('touchstart', function(e){
-  //   //console.log(e.touches[0].clientY);
-  //   e.preventDefault();
-  //   canvas.classList.remove('hidden');
-  //   margin = 0;
-  // });
+  canvas.addEventListener('touchstart', function(e){
+    e.preventDefault();
+  });
 
   canvas.addEventListener('touchmove', function(e){
     e.preventDefault();
