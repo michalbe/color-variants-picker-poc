@@ -36,15 +36,17 @@ window.onload = (function(){
     e.preventDefault();
     canvas.classList.remove('hidden');
     margin = 0;
-    draw();
+    var touchPosition = e.touches[0].clientY;
+    var inx = Math.round(touchPosition/(canvas.height/colors.length))-1;
+    draw(inx);
+    ctx.fillStyle = colors[inx];
+    ctx.fillRect(0, touchPosition - activeColorSize, activeColorSize, activeColorSize);
   });
 
   canvas.addEventListener('touchmove', function(e){
     var touchPosition = e.touches[0].clientY;
     var inx = Math.round(touchPosition/(canvas.height/colors.length))-1;
     draw(inx);
-    //console.log(touchPosition, colorSize, touchPosition/colorSize, inx);
-    //console.log(inx);
     ctx.fillStyle = colors[inx];
     ctx.fillRect(0, touchPosition - activeColorSize, activeColorSize, activeColorSize);
   });
