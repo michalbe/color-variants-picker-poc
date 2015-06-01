@@ -17,8 +17,7 @@ div.color {
   margin-bottom: 10px;
 }
 
-div.color span,
-div.color span input {
+div.color span {
   height: 30px;
   display: inline-block;
   flex-grow: 2;
@@ -28,13 +27,6 @@ div.color span input {
   font-weight: bold;
   opacity: 0.8;
   text-shadow: 1px 1px #FFF;
-}
-
-div.color span input {
-  background: transparent;
-  width: 33%;
-  border: none;
-  text-align: center;
 }
 
 span:active {
