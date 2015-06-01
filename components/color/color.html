@@ -1,6 +1,6 @@
 <span data-bind="text: color, attr: { id: color }"></span>
 <div class="color" data-bind="style: {'background-color': color}">
   <span class="minus" data-bind="click: decrement, css: {disabled: qty() <= 0}"> - </span>
-  <span class="qty"   data-bind="text: qty"></span>
+  <span class="qty"><input type="text" data-bind="value: qty"></input></span>
   <span class="plus"  data-bind="click: increment"> + </span>
 </div>
