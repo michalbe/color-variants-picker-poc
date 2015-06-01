@@ -43,7 +43,7 @@ window.onload = (function(){
     var touchPosition = e.touches[0].clientY;
     var inx = Math.round(touchPosition/(canvas.height/localColors.length))-1;
     draw(inx);
-    ctx.fillStyle = colors[inx];
+    ctx.fillStyle = localColors[inx];
     var target = document.getElementById(colors[inx]);
     if (target) {
       target.scrollIntoView();
