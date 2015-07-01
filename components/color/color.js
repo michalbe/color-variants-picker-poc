@@ -4,8 +4,7 @@ define(['knockout', 'text!./color.html'], function(ko, template) {
     var qty = ko.observable(0);
 
     var color = params.color;
-
-    console.log(color);
+    
     var increment = function(){
       var tmp = qty();
       qty(++tmp);
