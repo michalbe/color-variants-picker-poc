@@ -45,3 +45,14 @@ div.color span.qty {
   flex-grow: 1;
   text-align: center;
 }
+
+canvas#spectrum {
+  position: fixed;
+  top: 0;
+  right: 0;
+  transition: transform 0.5s;
+}
+
+canvas#spectrum.hidden {
+  transform: translateX(30px);
+}
