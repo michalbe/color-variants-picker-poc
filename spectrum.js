@@ -17,14 +17,14 @@ window.onload = (function(){
       var posX = 30;
       var tempSize = (canvas.height/colors.length);
       ctx.fillStyle = color;
-      // if (activeColor) {
-      //   distanceFactor = Math.abs(index - activeColor);
-      //   if (distanceFactor < affectedColors) {
-      //     console.log(index, colorSize * (activeColorSize/(distanceFactor+1)));
-      //     tempSize = colorSize * (activeColorSize/(distanceFactor+1));
-      //     posX = posX/(distanceFactor+1);
-      //   }
-      // }
+      if (activeColor) {
+        distanceFactor = Math.abs(index - activeColor);
+        if (distanceFactor < affectedColors) {
+          //console.log(index, colorSize * (activeColorSize/(distanceFactor+1)));
+          //tempSize = colorSize * (activeColorSize/(distanceFactor+1));
+          posX = posX/(distanceFactor+1);
+        }
+      }
       ctx.fillRect(posX, pos, 100, tempSize);
       pos += tempSize;
     });
@@ -45,8 +45,8 @@ window.onload = (function(){
     draw(inx);
     //console.log(touchPosition, colorSize, touchPosition/colorSize, inx);
     //console.log(inx);
-    ctx.fillStyle = colors[inx];
-    ctx.fillRect(0, touchPosition - activeColorSize, activeColorSize, activeColorSize);
+    // ctx.fillStyle = colors[inx];
+    // ctx.fillRect(0, touchPosition - activeColorSize, activeColorSize, activeColorSize);
   });
 
   canvas.addEventListener('touchend', function(){
