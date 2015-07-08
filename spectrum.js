@@ -7,8 +7,8 @@ window.onload = (function(){
   var pos = 0;
   var colorsNumber = colors.length;
   var colorSize = (canvas.height/colors.length);
-  var rectSize = 30;
-
+  var rectSize = 50;
+  var fingerIsHidingMeKurwaMargin = 50
   var draw = function(){
     canvas.height = document.documentElement.clientHeight;
     pos = 0;
@@ -37,7 +37,7 @@ window.onload = (function(){
     //console.log(touchPosition, colorSize, touchPosition/colorSize, inx);
     //console.log(inx);
     ctx.fillStyle = colors[inx];
-    ctx.fillRect(0, touchPosition - (rectSize/2), rectSize, rectSize);
+    ctx.fillRect(0, touchPosition - (rectSize/2) - fingerIsHidingMeKurwaMargin, rectSize, rectSize);
   });
 
   canvas.addEventListener('touchend', function(){
