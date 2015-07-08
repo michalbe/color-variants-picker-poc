@@ -9,7 +9,7 @@ body {
 }
 
 div.color {
-  width: 100%;
+  width: 94%;
   border: 2px solid #000;
   height: 40px;
   position: relative;
@@ -22,6 +22,7 @@ div.color span {
   display: inline-block;
   flex-grow: 2;
   font-size: 30px;
+  line-height: 20px;
   padding: 5px 10px;
   font-weight: bold;
   opacity: 0.8;
