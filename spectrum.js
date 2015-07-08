@@ -5,7 +5,7 @@ window.onload = (function(){
 
   var toSkip = 0;
   var pos = 0;
-  var affectedColors = 4;
+  var affectedColors = 100;
   var colorsNumber = colors.length;
   var colorSize = (canvas.height/colors.length);
   var activeColorSize = 40;
@@ -22,7 +22,8 @@ window.onload = (function(){
         if (distanceFactor < affectedColors) {
           //console.log(index, colorSize * (activeColorSize/(distanceFactor+1)));
           //tempSize = colorSize * (activeColorSize/(distanceFactor+1));
-          posX = posX/(distanceFactor+1);
+
+          posX = (distanceFactor+10) > posX ? posX : (distanceFactor+10);//posX - posX/(distanceFactor+1);
         }
       }
       ctx.fillRect(posX, pos, 100, tempSize);
@@ -41,7 +42,6 @@ window.onload = (function(){
   canvas.addEventListener('touchmove', function(e){
     var touchPosition = e.touches[0].clientY;
     var inx = Math.round(touchPosition/(canvas.height/colors.length))-1;
-    console.log(inx);
     draw(inx);
     //console.log(touchPosition, colorSize, touchPosition/colorSize, inx);
     //console.log(inx);
