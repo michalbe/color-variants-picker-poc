@@ -54,5 +54,5 @@ canvas#spectrum {
 }
 
 canvas#spectrum.hidden {
-  transform: translateX(30px);
+  transform: translateX(20px);
 }

@@ -1,26 +1,32 @@
 window.onload = (function(){
   var canvas = document.querySelector('canvas#spectrum');
   var ctx = canvas.getContext('2d');
-  canvas.width = 50;
+  canvas.width = 60;
 
   var toSkip = 0;
   var pos = 0;
   var affectedColors = 4;
   var colorsNumber = colors.length;
   var colorSize = (canvas.height/colors.length);
-  var activeColorSize = 100;
+  var activeColorSize = 40;
 
   var draw = function(activeColor){
     canvas.height = document.documentElement.clientHeight;
     pos = 0;
-    colorSize = (canvas.height/colors.length);
-    colors.forEach(function(color, index){
+    colors.forEach(function(color, index) {
+      var posX = 30;
+      var tempSize = (canvas.height/colors.length);
       ctx.fillStyle = color;
-      if (Math.abs(index - activeColor) < affectedColors)
-        console.log(Math.abs(index - activeColor))// < affectedColors);
-        //tu dodac rysowanie
-      ctx.fillRect(10, pos, 100, colorSize);
-      pos += colorSize;
+      // if (activeColor) {
+      //   distanceFactor = Math.abs(index - activeColor);
+      //   if (distanceFactor < affectedColors) {
+      //     console.log(index, colorSize * (activeColorSize/(distanceFactor+1)));
+      //     tempSize = colorSize * (activeColorSize/(distanceFactor+1));
+      //     posX = posX/(distanceFactor+1);
+      //   }
+      // }
+      ctx.fillRect(posX, pos, 100, tempSize);
+      pos += tempSize;
     });
   };
 
@@ -33,14 +39,14 @@ window.onload = (function(){
   });
 
   canvas.addEventListener('touchmove', function(e){
-    draw();
     var touchPosition = e.touches[0].clientY;
-    var inx = Math.round(touchPosition/colorSize)-1;
-
+    var inx = Math.round(touchPosition/(canvas.height/colors.length))-1;
+    console.log(inx);
+    draw(inx);
     //console.log(touchPosition, colorSize, touchPosition/colorSize, inx);
     //console.log(inx);
     ctx.fillStyle = colors[inx];
-    ctx.fillRect(0, touchPosition - (activeColorSize/2), activeColorSize, activeColorSize);
+    ctx.fillRect(0, touchPosition - activeColorSize, activeColorSize, activeColorSize);
   });
 
   canvas.addEventListener('touchend', function(){
@@ -48,6 +54,6 @@ window.onload = (function(){
     draw();
   });
 
-  draw(32);
+  draw();
   window.onresize = draw;
 });
