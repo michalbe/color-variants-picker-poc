@@ -9,4 +9,11 @@ div.color {
   border: 2px solid #000;
   text-align: center;
   height: 40px;
+  position: relative;
+}
+
+div.color span {
+  height: 40px;
+  display: inline-block;
+  border: 1px solid #000;
 }
