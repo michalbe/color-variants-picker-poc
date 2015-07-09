@@ -7,13 +7,28 @@ body {
 div.color {
   width: 100%;
   border: 2px solid #000;
-  text-align: center;
   height: 40px;
   position: relative;
+  display: flex;
 }
 
 div.color span {
-  height: 40px;
+  height: 30px;
   display: inline-block;
-  border: 1px solid #000;
+  flex-grow: 2;
+  font-size: 30px;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+
+span:hover {
+  background-color: #FF00FF;
+}
+div.color span.plus {
+  text-align: right;
+}
+
+div.color span.qty {
+  flex-grow: 1;
+  text-align: center;
 }
