@@ -2,6 +2,10 @@ body {
   margin: 0;
   padding: 15px;
   background-color: #CCC;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
 }
 
 div.color {
@@ -10,6 +14,7 @@ div.color {
   height: 40px;
   position: relative;
   display: flex;
+  margin-bottom: 10px;
 }
 
 div.color span {
@@ -19,11 +24,18 @@ div.color span {
   font-size: 30px;
   padding: 5px 10px;
   font-weight: bold;
+  opacity: 0.8;
 }
 
-span:hover {
-  background-color: MediumVioletRed;
+span:active {
+  background-color: #CCC;
 }
+
+div.color span.disabled {
+  cursor: auto;
+  pointer-events: none;
+}
+
 div.color span.plus {
   text-align: right;
 }
