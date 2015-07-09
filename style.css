@@ -22,7 +22,7 @@ div.color span {
 }
 
 span:hover {
-  background-color: #FF00FF;
+  background-color: MediumVioletRed;
 }
 div.color span.plus {
   text-align: right;
