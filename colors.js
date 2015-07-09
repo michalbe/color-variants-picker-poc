@@ -1,4 +1,4 @@
-var colors = ["LightPink",
+["LightPink",
 "Pink",
 "Crimson",
 "LavenderBlush",
@@ -137,4 +137,4 @@ var colors = ["LightPink",
 "DarkGray",
 "Gray",
 "DimGray",
-"Black"];
+"Black" ]
