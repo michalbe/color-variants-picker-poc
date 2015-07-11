@@ -66,4 +66,10 @@ div.cart {
   left: 0;
   background-color: #fff;
   border: 1px solid #000;
+  transition: transform 0.2s;
+  transform: translateX(-100%);
+}
+
+div.cart.visible {
+  transform: translateX(0);
 }
