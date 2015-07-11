@@ -57,3 +57,13 @@ canvas#spectrum {
 canvas#spectrum.hidden {
   transform: translateX(20px);
 }
+
+div.cart {
+  width: 50%;
+  height: 100px;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #000;
+}
